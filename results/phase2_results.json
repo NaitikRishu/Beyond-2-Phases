@@ -1,0 +1,609 @@
+{
+  "n_total_lt2016": 646878,
+  "cut": "2015-09-01",
+  "val_cut": "2015-05-01",
+  "n_fit": 500216,
+  "n_val": 74750,
+  "n_test": 71912,
+  "default_rate": {
+    "fit": 0.1830289315015913,
+    "val": 0.26957859531772577,
+    "test": 0.2662559795305373
+  },
+  "leakage": {
+    "corr_implied_apr_vs_default_test_auc": 0.6937706401763043,
+    "implied_apr_val_auc": 0.6948085044781622,
+    "LR_loan_term_instalment_test_auc": 0.6754090541130034,
+    "LR_strict_no_instalment_test_auc": 0.6951262673007562,
+    "LGBM_loan_term_instalment_test_auc": 0.6840962131071375
+  },
+  "lgbm_grid": [
+    {
+      "num_leaves": 15,
+      "min_child_samples": 100,
+      "val_auc": 0.7198167271412818,
+      "iters": 3980
+    },
+    {
+      "num_leaves": 15,
+      "min_child_samples": 500,
+      "val_auc": 0.7207310124045425,
+      "iters": 4000
+    },
+    {
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "val_auc": 0.7203367892072721,
+      "iters": 2983
+    },
+    {
+      "num_leaves": 31,
+      "min_child_samples": 500,
+      "val_auc": 0.7207625223387487,
+      "iters": 3536
+    },
+    {
+      "num_leaves": 63,
+      "min_child_samples": 100,
+      "val_auc": 0.719445630134329,
+      "iters": 2069
+    },
+    {
+      "num_leaves": 63,
+      "min_child_samples": 500,
+      "val_auc": 0.7201433659469605,
+      "iters": 1647
+    }
+  ],
+  "lgbm_best_params": {
+    "num_leaves": 31,
+    "min_child_samples": 500
+  },
+  "calibration_note": {
+    "LR (paper features)": {
+      "mean_pred": 0.4829116328101223,
+      "actual": 0.2662559795305373
+    },
+    "DNN [5,5] (paper)": {
+      "mean_pred": 0.48393653170624534,
+      "actual": 0.2662559795305373
+    },
+    "DNN [30,1] (paper)": {
+      "mean_pred": 0.4846263136967607,
+      "actual": 0.2662559795305373
+    },
+    "LR (strict ex-ante, no instalment)": {
+      "mean_pred": 0.49038556619849,
+      "actual": 0.2662559795305373
+    },
+    "LGBM (paper features)": {
+      "mean_pred": 0.2078562286426149,
+      "actual": 0.2662559795305373
+    },
+    "LGBM + engineered (proposed)": {
+      "mean_pred": 0.23620706896170734,
+      "actual": 0.2662559795305373
+    },
+    "LGBM strict ex-ante (no instalment)": {
+      "mean_pred": 0.23722740584013824,
+      "actual": 0.2662559795305373
+    },
+    "XGBoost + engineered": {
+      "mean_pred": 0.23645637929439545,
+      "actual": 0.2662559795305373
+    },
+    "LGBM + engineered, isotonic-calibrated": {
+      "mean_pred": 0.2662340098630278,
+      "actual": 0.2662559795305373
+    },
+    "Rank ensemble (LR+DNN+LGBM)": {
+      "mean_pred": 0.5000069529424852,
+      "actual": 0.2662559795305373
+    }
+  },
+  "delong": {
+    "LGBM + engineered (proposed) vs LR (paper features)": {
+      "dAUC": 0.01455414764445373,
+      "z": 13.184899779345923,
+      "p": 1.0719635546479122e-39
+    },
+    "LGBM + engineered (proposed) vs DNN [5,5] (paper)": {
+      "dAUC": 0.01717106970879012,
+      "z": 14.83672252411561,
+      "p": 8.479894231760993e-50
+    },
+    "LGBM + engineered (proposed) vs DNN [30,1] (paper)": {
+      "dAUC": 0.014432282810904251,
+      "z": 13.208704174709684,
+      "p": 7.815833476442646e-40
+    },
+    "LGBM (paper features) vs LR (paper features)": {
+      "dAUC": 0.01224646406615415,
+      "z": 12.71429962606727,
+      "p": 4.9250236663854914e-37
+    },
+    "LGBM (paper features) vs DNN [5,5] (paper)": {
+      "dAUC": 0.014863386130490541,
+      "z": 14.310215603099069,
+      "p": 1.8892670564383486e-46
+    },
+    "LGBM (paper features) vs DNN [30,1] (paper)": {
+      "dAUC": 0.012124599232604671,
+      "z": 12.591293191849573,
+      "p": 2.3577865689022343e-36
+    },
+    "XGBoost + engineered vs LR (paper features)": {
+      "dAUC": 0.015130555073337604,
+      "z": 14.109261848922658,
+      "p": 3.330457457644357e-45
+    },
+    "XGBoost + engineered vs DNN [5,5] (paper)": {
+      "dAUC": 0.017747477137673995,
+      "z": 15.788395239052857,
+      "p": 3.73973349674124e-56
+    },
+    "XGBoost + engineered vs DNN [30,1] (paper)": {
+      "dAUC": 0.015008690239788125,
+      "z": 14.194314962417325,
+      "p": 9.93525548868901e-46
+    },
+    "Rank ensemble (LR+DNN+LGBM) vs LR (paper features)": {
+      "dAUC": 0.012646403606373147,
+      "z": 21.56373141659873,
+      "p": 3.935606494784779e-103
+    },
+    "Rank ensemble (LR+DNN+LGBM) vs DNN [5,5] (paper)": {
+      "dAUC": 0.015263325670709538,
+      "z": 23.91302293000152,
+      "p": 2.2421453502307417e-126
+    },
+    "Rank ensemble (LR+DNN+LGBM) vs DNN [30,1] (paper)": {
+      "dAUC": 0.012524538772823668,
+      "z": 19.78566312813784,
+      "p": 3.9565921632527347e-87
+    }
+  },
+  "economics": {
+    "LR (paper features)": {
+      "approval_at_10pct_bad": 0.24175381021248193,
+      "max_profit_musd": 28.120868620001303,
+      "approval_at_max_profit": 0.8556569140060073,
+      "bad_rate_at_max_profit": 0.2247123447962036,
+      "status_quo_profit_musd": 12.460006190001426,
+      "status_quo_bad_rate": 0.2662559795305373,
+      "by_lgd": {
+        "0.4": 89.25738719999963,
+        "0.5": 63.151738480000496,
+        "0.65": 28.120868620001303,
+        "0.8": 14.553114840000463,
+        "0.9": 11.10345724000032
+      }
+    },
+    "DNN [5,5] (paper)": {
+      "approval_at_10pct_bad": 0.23445322060295917,
+      "max_profit_musd": 27.173547850001345,
+      "approval_at_max_profit": 0.8529869840916676,
+      "bad_rate_at_max_profit": 0.22495924356048255,
+      "status_quo_profit_musd": 12.46000619000145,
+      "status_quo_bad_rate": 0.2662559795305373,
+      "by_lgd": {
+        "0.4": 88.59134131999922,
+        "0.5": 62.097836260000165,
+        "0.65": 27.173547850001345,
+        "0.8": 15.382851800000514,
+        "0.9": 10.603862060000441
+      }
+    },
+    "LGBM + engineered (proposed)": {
+      "approval_at_10pct_bad": 0.2889642896873957,
+      "max_profit_musd": 31.78943767000141,
+      "approval_at_max_profit": 0.8360635220825453,
+      "bad_rate_at_max_profit": 0.21695524175440348,
+      "status_quo_profit_musd": 12.460006190001454,
+      "status_quo_bad_rate": 0.2662559795305373,
+      "by_lgd": {
+        "0.4": 90.18806063999999,
+        "0.5": 64.68142426000068,
+        "0.65": 31.78943767000141,
+        "0.8": 16.552674440000526,
+        "0.9": 12.453922040000348
+      }
+    },
+    "LGBM strict ex-ante (no instalment)": {
+      "approval_at_10pct_bad": 0.2583852486372233,
+      "max_profit_musd": 31.9874639100015,
+      "approval_at_max_profit": 0.8761820002224942,
+      "bad_rate_at_max_profit": 0.2279393092940579,
+      "status_quo_profit_musd": 12.460006190001529,
+      "status_quo_bad_rate": 0.2662559795305373,
+      "by_lgd": {
+        "0.4": 90.69149892000029,
+        "0.5": 65.76015704000056,
+        "0.65": 31.9874639100015,
+        "0.8": 16.245498880000557,
+        "0.9": 11.99106916000046
+      }
+    }
+  },
+  "ev_rule": {
+    "approval_rate": 0.5746328846367783,
+    "bad_rate": 0.1849575297050069,
+    "profit_musd": 43.637747340000004
+  },
+  "three_band": [
+    {
+      "accept_share": 0.5579041050172433,
+      "refer_share": 0.24097508065413284,
+      "reject_share": 0.2011208143286239,
+      "bad_rate_accept": 0.15655533399800597,
+      "bad_rate_refer": 0.3293900398176467,
+      "bad_rate_reject": 0.49491806679112216,
+      "defaults_in_reject": 0.37384446649605685,
+      "defaults_in_accept": 0.3280409463623544
+    },
+    {
+      "accept_share": 0.4984842585382134,
+      "refer_share": 0.30039492713316274,
+      "reject_share": 0.2011208143286239,
+      "bad_rate_accept": 0.1439451000083689,
+      "bad_rate_refer": 0.3161281362836774,
+      "bad_rate_reject": 0.49491806679112216,
+      "defaults_in_reject": 0.37384446649605685,
+      "defaults_in_accept": 0.2694939154959001
+    },
+    {
+      "accept_share": 0.7019134497719435,
+      "refer_share": 0.09696573589943264,
+      "reject_share": 0.2011208143286239,
+      "bad_rate_accept": 0.1861676836516364,
+      "bad_rate_refer": 0.3717194894593432,
+      "bad_rate_reject": 0.49491806679112216,
+      "defaults_in_reject": 0.37384446649605685,
+      "defaults_in_accept": 0.49078184571995614
+    }
+  ],
+  "conformal": [
+    {
+      "alpha": 0.1,
+      "coverage_default": 0.9178461377761529,
+      "coverage_paid": 0.902586942101772,
+      "singleton_share": 0.39156190899988874,
+      "only_default_share": 0.1497802870174658,
+      "precision_only_default": 0.5227926840590474,
+      "only_paid_share": 0.24178162198242295,
+      "bad_rate_only_paid": 0.09046989129809628
+    },
+    {
+      "alpha": 0.2,
+      "coverage_default": 0.8265524625267666,
+      "coverage_paid": 0.8070501279257083,
+      "singleton_share": 0.6497663811324953,
+      "only_default_share": 0.26542162643230616,
+      "precision_only_default": 0.46660030387174517,
+      "only_paid_share": 0.38434475470018914,
+      "bad_rate_only_paid": 0.12015630087919245
+    },
+    {
+      "alpha": 0.3,
+      "coverage_default": 0.6896119496526871,
+      "coverage_paid": 0.738766227613001,
+      "singleton_share": 0.8811046835020581,
+      "only_default_share": 0.3407498053176104,
+      "precision_only_default": 0.43747959516813584,
+      "only_paid_share": 0.5403548781844476,
+      "bad_rate_only_paid": 0.15294147923207577
+    }
+  ],
+  "models": {
+    "LR (paper features)": {
+      "AUC": 0.7021545391572177,
+      "AUC_lo": 0.697954160892556,
+      "AUC_hi": 0.7063549174218794,
+      "Gini": 0.4043090783144354,
+      "KS": 0.2918543203950983,
+      "PR_AUC": 0.4527579338340769,
+      "recall_default": 0.652321512508487,
+      "recall_paid": 0.6373164029186014,
+      "recall_macro": 0.6448189577135441,
+      "threshold": 0.5,
+      "AUC_bal": 0.7019755222810992,
+      "recall_default_bal": 0.6523215125084871,
+      "recall_paid_bal": 0.6364730767222019,
+      "C": 10
+    },
+    "DNN [5,5] (paper)": {
+      "AUC": 0.6995376170928813,
+      "AUC_lo": 0.6953196635261457,
+      "AUC_hi": 0.7037555706596169,
+      "Gini": 0.39907523418576263,
+      "KS": 0.2883009517288257,
+      "PR_AUC": 0.44897710126513096,
+      "recall_default": 0.6582232203478352,
+      "recall_paid": 0.62710129820904,
+      "recall_macro": 0.6426622592784377,
+      "threshold": 0.5,
+      "AUC_bal": 0.6993210106831144,
+      "recall_default_bal": 0.6582232203478353,
+      "recall_paid_bal": 0.6261999268814957
+    },
+    "DNN [30,1] (paper)": {
+      "AUC": 0.7022764039907672,
+      "AUC_lo": 0.6980853074116025,
+      "AUC_hi": 0.7064675005699319,
+      "Gini": 0.40455280798153437,
+      "KS": 0.29144415063868867,
+      "PR_AUC": 0.44933854539692225,
+      "recall_default": 0.656186347730715,
+      "recall_paid": 0.6341324741779589,
+      "recall_macro": 0.645159410954337,
+      "threshold": 0.5,
+      "AUC_bal": 0.7020672481459598,
+      "recall_default_bal": 0.656186347730715,
+      "recall_paid_bal": 0.6334987204261766
+    },
+    "LR (strict ex-ante, no instalment)": {
+      "AUC": 0.6951262673007563,
+      "AUC_lo": 0.6908864592945881,
+      "AUC_hi": 0.6993660753069245,
+      "Gini": 0.39025253460151266,
+      "KS": 0.2814496486065993,
+      "PR_AUC": 0.4447194023019101,
+      "recall_default": 0.6687731759544576,
+      "recall_paid": 0.6115985975551975,
+      "recall_macro": 0.6401858867548276,
+      "threshold": 0.5,
+      "AUC_bal": 0.6949131234480188,
+      "recall_default_bal": 0.6687731759544577,
+      "recall_paid_bal": 0.6109207708779443
+    },
+    "LGBM (paper features)": {
+      "AUC": 0.7144010032233719,
+      "AUC_lo": 0.7102809604627565,
+      "AUC_hi": 0.7185210459839872,
+      "Gini": 0.4288020064467437,
+      "KS": 0.3094346729875094,
+      "PR_AUC": 0.4671472151318694,
+      "recall_default": 0.6524259675144931,
+      "recall_paid": 0.6552639059982943,
+      "recall_macro": 0.6538449367563937,
+      "threshold": 0.1960039663140406,
+      "Brier": 0.17713059708324227,
+      "LogLoss": 0.5325611580367697,
+      "ECE": 0.05839975088792241,
+      "AUC_bal": 0.7142712793503421,
+      "recall_default_bal": 0.652425967514493,
+      "recall_paid_bal": 0.6549328876586411
+    },
+    "LGBM + engineered (proposed)": {
+      "AUC": 0.7167086868016714,
+      "AUC_lo": 0.7125877969382987,
+      "AUC_hi": 0.7208295766650442,
+      "Gini": 0.43341737360334287,
+      "KS": 0.3140849181981847,
+      "PR_AUC": 0.4712609955602507,
+      "recall_default": 0.6896119496526871,
+      "recall_paid": 0.6238036577276603,
+      "recall_macro": 0.6567078036901737,
+      "threshold": 0.217449757630295,
+      "Brier": 0.17374682719643159,
+      "LogLoss": 0.5228271071699511,
+      "ECE": 0.030048910568830002,
+      "AUC_bal": 0.716564365416649,
+      "recall_default_bal": 0.689611949652687,
+      "recall_paid_bal": 0.623405755470831,
+      "iters": 3536
+    },
+    "LGBM strict ex-ante (no instalment)": {
+      "AUC": 0.7084501511496997,
+      "AUC_lo": 0.7042827312560669,
+      "AUC_hi": 0.7126175710433325,
+      "Gini": 0.41690030229939934,
+      "KS": 0.30040360184972564,
+      "PR_AUC": 0.4618541255195455,
+      "recall_default": 0.6939990599049459,
+      "recall_paid": 0.6055529233393347,
+      "recall_macro": 0.6497759916221404,
+      "threshold": 0.21631510553211933,
+      "Brier": 0.17527622402018272,
+      "LogLoss": 0.5268406853377183,
+      "ECE": 0.02902857369039911,
+      "AUC_bal": 0.7083539655883138,
+      "recall_default_bal": 0.693999059904946,
+      "recall_paid_bal": 0.6051287407949026
+    },
+    "XGBoost + engineered": {
+      "AUC": 0.7172850942305553,
+      "AUC_lo": 0.7131698892283717,
+      "AUC_hi": 0.721400299232739,
+      "Gini": 0.4345701884611106,
+      "KS": 0.3143470883369446,
+      "PR_AUC": 0.4709752093020323,
+      "recall_default": 0.6546195226406225,
+      "recall_paid": 0.6561356960106131,
+      "recall_macro": 0.6553776093256178,
+      "threshold": 0.23017145693302155,
+      "Brier": 0.17368516325950623,
+      "LogLoss": 0.5224905014038086,
+      "ECE": 0.029799594979955775,
+      "AUC_bal": 0.7170958264262323,
+      "recall_default_bal": 0.6546195226406225,
+      "recall_paid_bal": 0.6558912623387475
+    },
+    "LGBM + engineered, isotonic-calibrated": {
+      "AUC": 0.7164681393845898,
+      "AUC_lo": 0.7123500910542834,
+      "AUC_hi": 0.7205861877148961,
+      "Gini": 0.4329362787691795,
+      "KS": 0.3137633199124702,
+      "PR_AUC": 0.46314166937272927,
+      "recall_default": 0.6896119496526871,
+      "recall_paid": 0.6238036577276603,
+      "recall_macro": 0.6567078036901737,
+      "threshold": 0.2736,
+      "Brier": 0.17274700308528154,
+      "LogLoss": 0.5196732705326315,
+      "ECE": 0.005724976288481779,
+      "AUC_bal": 0.7163286288337785,
+      "recall_default_bal": 0.689611949652687,
+      "recall_paid_bal": 0.623405755470831
+    },
+    "Rank ensemble (LR+DNN+LGBM)": {
+      "AUC": 0.7148009427635909,
+      "AUC_lo": 0.7106788603757687,
+      "AUC_hi": 0.718923025151413,
+      "Gini": 0.4296018855271817,
+      "KS": 0.31140913589138497,
+      "PR_AUC": 0.4678218114222267,
+      "recall_default": 0.6761372538778921,
+      "recall_paid": 0.6334881076471146,
+      "recall_macro": 0.6548126807625034,
+      "threshold": 0.5470903010033445,
+      "AUC_bal": 0.714635814064623,
+      "recall_default_bal": 0.676137253877892,
+      "recall_paid_bal": 0.633255862537212
+    },
+    "LGBM + engineered, IPW reject-inference": {
+      "AUC": 0.7044,
+      "AUC_lo": 0.7002,
+      "AUC_hi": 0.7086,
+      "Gini": 0.4088,
+      "KS": 0.2934,
+      "PR_AUC": 0.4571,
+      "recall_default": 0.6509,
+      "recall_paid": 0.641,
+      "recall_macro": 0.646,
+      "threshold": 0.2049,
+      "Brier": 0.1777,
+      "LogLoss": 0.5346,
+      "ECE": 0.0477,
+      "AUC_bal": 0.7042,
+      "recall_default_bal": 0.6509,
+      "recall_paid_bal": 0.6408
+    }
+  },
+  "rolling": [
+    {
+      "test_year": 2012,
+      "terms": "all",
+      "n_train": 35186,
+      "n_test": 53199,
+      "default_rate": 0.16199552623169608,
+      "AUC_LR": 0.6707601505883963,
+      "AUC_LGBM": 0.6737036273524647
+    },
+    {
+      "test_year": 2012,
+      "terms": "36m",
+      "n_train": 26037,
+      "n_test": 43395,
+      "default_rate": 0.13572992280216614,
+      "AUC_LR": 0.632868255935994,
+      "AUC_LGBM": 0.6454731129228044
+    },
+    {
+      "test_year": 2013,
+      "terms": "all",
+      "n_train": 80600,
+      "n_test": 126882,
+      "default_rate": 0.16172506738544473,
+      "AUC_LR": 0.6861314831694167,
+      "AUC_LGBM": 0.6921550485408743
+    },
+    {
+      "test_year": 2013,
+      "terms": "36m",
+      "n_train": 62487,
+      "n_test": 100422,
+      "default_rate": 0.12325984346059628,
+      "AUC_LR": 0.6362312232080026,
+      "AUC_LGBM": 0.6459626730135865
+    },
+    {
+      "test_year": 2014,
+      "terms": "all",
+      "n_train": 192086,
+      "n_test": 208142,
+      "default_rate": 0.18338442025155904,
+      "AUC_LR": 0.7057433687193134,
+      "AUC_LGBM": 0.7142345411869868
+    },
+    {
+      "test_year": 2014,
+      "terms": "36m",
+      "n_train": 150826,
+      "n_test": 161819,
+      "default_rate": 0.13667739882214078,
+      "AUC_LR": 0.6598775937698018,
+      "AUC_LGBM": 0.6661225160486955
+    },
+    {
+      "test_year": 2015,
+      "terms": "all",
+      "n_train": 364740,
+      "n_test": 218970,
+      "default_rate": 0.264383248846874,
+      "AUC_LR": 0.6970854253758468,
+      "AUC_LGBM": 0.7069933910574953
+    },
+    {
+      "test_year": 2015,
+      "terms": "36m",
+      "n_train": 285345,
+      "n_test": 155806,
+      "default_rate": 0.21617267627690848,
+      "AUC_LR": 0.6856579054666584,
+      "AUC_LGBM": 0.6958703790093683
+    }
+  ],
+  "ipw_low_propensity": {
+    "n": 14383,
+    "default_rate": 0.2887436557046513,
+    "auc_plain": 0.7129340836183151,
+    "auc_ipw": 0.6972281635082719
+  },
+  "small_business": {
+    "LR trained on all": {
+      "AUC": 0.6846027846027847,
+      "lo": 0.6427277861368724,
+      "hi": 0.7264777830686969,
+      "recall_default": 0.9053030303030303,
+      "recall_paid": 0.24324324324324326
+    },
+    "LGBM trained on all": {
+      "AUC": 0.685391072891073,
+      "lo": 0.6438753886258517,
+      "hi": 0.7269067571562944,
+      "recall_default": 0.9015151515151515,
+      "recall_paid": 0.3324324324324324
+    },
+    "LR trained on sb_only": {
+      "AUC": 0.6863226863226863,
+      "lo": 0.6445706328024466,
+      "hi": 0.728074739842926,
+      "recall_default": 0.6628787878787878,
+      "recall_paid": 0.6216216216216216
+    },
+    "LGBM trained on sb_only": {
+      "AUC": 0.6838759213759213,
+      "lo": 0.642149986891273,
+      "hi": 0.7256018558605697,
+      "recall_default": 0.6439393939393939,
+      "recall_paid": 0.6216216216216216
+    },
+    "n_test_sb": 634,
+    "default_rate_sb_test": 0.416403785488959,
+    "n_fit_sb": 7183
+  },
+  "shap_top10": {
+    "term": 0.5489,
+    "earliest_cr_line": 0.3477,
+    "inst_to_income": 0.307,
+    "loan_amnt": 0.2897,
+    "installment": 0.2873,
+    "credit_hist_yrs": 0.2615,
+    "fico_score": 0.2326,
+    "loan_to_income": 0.2298,
+    "dti_incl_new": 0.1682,
+    "open_acc": 0.1251
+  }
+}

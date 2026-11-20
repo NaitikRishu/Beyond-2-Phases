@@ -1,0 +1,38 @@
+[
+ {
+  "num_leaves": 15,
+  "min_child_samples": 100,
+  "val_auc": 0.7198167271412818,
+  "iters": 3980
+ },
+ {
+  "num_leaves": 15,
+  "min_child_samples": 500,
+  "val_auc": 0.7207310124045425,
+  "iters": 4000
+ },
+ {
+  "num_leaves": 31,
+  "min_child_samples": 100,
+  "val_auc": 0.7203367892072721,
+  "iters": 2983
+ },
+ {
+  "num_leaves": 31,
+  "min_child_samples": 500,
+  "val_auc": 0.7207625223387487,
+  "iters": 3536
+ },
+ {
+  "num_leaves": 63,
+  "min_child_samples": 100,
+  "val_auc": 0.719445630134329,
+  "iters": 2069
+ },
+ {
+  "num_leaves": 63,
+  "min_child_samples": 500,
+  "val_auc": 0.7201433659469605,
+  "iters": 1647
+ }
+]

@@ -1,0 +1,240 @@
+{
+  "tier_table": [
+    {
+      "cibil": "Subprime 300-680",
+      "default_rate": 0.0,
+      "n": 2,
+      "share": 3.091773100955667e-06
+    },
+    {
+      "cibil": "Near prime 681-730",
+      "default_rate": 0.2435199116571192,
+      "n": 362225,
+      "share": 0.5599587557468333
+    },
+    {
+      "cibil": "Prime 731-770",
+      "default_rate": 0.17236694490474377,
+      "n": 194318,
+      "share": 0.3003935827157517
+    },
+    {
+      "cibil": "Prime plus 771-790",
+      "default_rate": 0.12209356183418249,
+      "n": 43180,
+      "share": 0.06675138124963285
+    },
+    {
+      "cibil": "Super prime 791-900",
+      "default_rate": 0.08222170381523976,
+      "n": 47153,
+      "share": 0.07289318851468128
+    }
+  ],
+  "ntc_share": 0.15077495292775453,
+  "default_rate_ntc": 0.21107727640901028,
+  "default_rate_etc": 0.20072085847691343,
+  "M0_bureau_only": {
+    "all": {
+      "AUC": 0.7008250797290967,
+      "lo": 0.6966146284114919,
+      "hi": 0.7050355310467015
+    },
+    "NTC": {
+      "AUC": 0.6450742475386829,
+      "lo": 0.633498467409311,
+      "hi": 0.6566500276680548
+    },
+    "ETC": {
+      "AUC": 0.7098131551053048,
+      "lo": 0.7052926141761587,
+      "hi": 0.714333696034451
+    }
+  },
+  "ntc_inclusion_M0": {
+    "ntc_approved": 1507,
+    "ntc_approval_rate": 0.14422432768686,
+    "share_of_good_ntc_included": 0.17172395273899033
+  },
+  "M1_gain_importance_gamma0.3": {
+    "term": 0.2149,
+    "aa_avg_bal_to_emi": 0.1915,
+    "salary_credit_regularity": 0.1887,
+    "cibil": 0.0744,
+    "loan_to_income": 0.0411,
+    "foir": 0.0394,
+    "upi_txn_per_month": 0.036,
+    "log_annual_inc": 0.0319,
+    "purpose": 0.029,
+    "log_revol_bal": 0.0186,
+    "nach_bounces_12m": 0.0154,
+    "home_ownership": 0.0152,
+    "revol_util": 0.0146,
+    "loan_amnt": 0.0139,
+    "emp_length": 0.0138,
+    "mort_acc": 0.0132,
+    "open_acc": 0.0122,
+    "credit_hist_yrs": 0.012,
+    "total_acc": 0.0106,
+    "gst_filing_regularity": 0.0063,
+    "income_verified": 0.0044,
+    "pub_rec": 0.0018,
+    "pub_rec_bankruptcies": 0.0012,
+    "ntc": 0.0
+  },
+  "M1_gamma0.3": {
+    "all": {
+      "AUC": 0.7423476891626288,
+      "lo": 0.7383554809008891,
+      "hi": 0.7463398974243686
+    },
+    "NTC": {
+      "AUC": 0.7165831940731535,
+      "lo": 0.7059283093113458,
+      "hi": 0.7272380788349613
+    },
+    "ETC": {
+      "AUC": 0.7466633106473611,
+      "lo": 0.7423550879191984,
+      "hi": 0.7509715333755239
+    }
+  },
+  "policies": [
+    {
+      "policy": "Rule A: CIBIL>=750 & FOIR<=50%, NTC rejected",
+      "approval_rate": 0.1946406719323618,
+      "bad_rate": 0.15160391512466956,
+      "ntc_approval_rate": 0.0,
+      "ntc_bad_rate": NaN,
+      "etc_approval_rate": 0.22773050453118135,
+      "loss_per_100cr": 10.562201568567964
+    },
+    {
+      "policy": "Rule B: CIBIL>=700 & FOIR<=50%, NTC rejected",
+      "approval_rate": 0.7611803315162977,
+      "bad_rate": 0.25075815703898574,
+      "ntc_approval_rate": 0.0,
+      "ntc_bad_rate": NaN,
+      "etc_approval_rate": 0.8905845793404162,
+      "loss_per_100cr": 17.05501361052691
+    },
+    {
+      "policy": "Model M0 (bureau only) at Rule A bad rate",
+      "approval_rate": 0.48110190232506395,
+      "bad_rate": 0.1516027401219759,
+      "ntc_approval_rate": 0.46741314958369223,
+      "ntc_bad_rate": 0.19901719901719903,
+      "etc_approval_rate": 0.4834290548785448,
+      "loss_per_100cr": 9.649618250678126
+    },
+    {
+      "policy": "Model M1 (bureau + AA/UPI), gamma=0.3, at Rule A bad rate",
+      "approval_rate": 0.5962565357659362,
+      "bad_rate": 0.1515928914594897,
+      "ntc_approval_rate": 0.5817781605895301,
+      "ntc_bad_rate": 0.17585129133081098,
+      "etc_approval_rate": 0.5987179278590371,
+      "loss_per_100cr": 9.703961531727566
+    }
+  ],
+  "sweep": [
+    {
+      "gamma": 0.0,
+      "auc_all": 0.7005333792514359,
+      "auc_ntc": 0.6486890692719326,
+      "auc_ntc_lo": 0.6372070401953381,
+      "auc_ntc_hi": 0.660171098348527,
+      "auc_etc": 0.709056037609196,
+      "auc_alt_only_model": 0.6708745863835897,
+      "auc_single_aa_feature": 0.56072387150894,
+      "delong_p_ntc_vs_M0": 0.013611836618358927,
+      "approval_rate": 0.4815607965290911,
+      "ntc_approval_rate_portfolio": 0.46406354675088524,
+      "bad_rate": 0.15160265665607855,
+      "loss_per_100cr": 9.657537522715328,
+      "ntc_inclusion_rate": 0.2364819599961719,
+      "ntc_good_included": 0.28155209452201935,
+      "ntc_approved_n": 2471
+    },
+    {
+      "gamma": 0.15,
+      "auc_all": 0.7145972060112098,
+      "auc_ntc": 0.6752456932544146,
+      "auc_ntc_lo": 0.6640307159635922,
+      "auc_ntc_hi": 0.6864606705452371,
+      "auc_etc": 0.7211514957677018,
+      "auc_alt_only_model": 0.6936111233366811,
+      "auc_single_aa_feature": 0.6138063832282933,
+      "delong_p_ntc_vs_M0": 1.0107115493184915e-17,
+      "approval_rate": 0.5266019579486039,
+      "ntc_approval_rate_portfolio": 0.5130634510479471,
+      "bad_rate": 0.151601573846682,
+      "loss_per_100cr": 9.640276626353113,
+      "ntc_inclusion_rate": 0.3292181069958848,
+      "ntc_good_included": 0.3919172932330827,
+      "ntc_approved_n": 3440
+    },
+    {
+      "gamma": 0.3,
+      "auc_all": 0.7423476891626288,
+      "auc_ntc": 0.7165831940731535,
+      "auc_ntc_lo": 0.7059283093113458,
+      "auc_ntc_hi": 0.7272380788349613,
+      "auc_etc": 0.7466633106473611,
+      "auc_alt_only_model": 0.7287130672603779,
+      "auc_single_aa_feature": 0.6615770099728301,
+      "delong_p_ntc_vs_M0": 3.0550912757193913e-50,
+      "approval_rate": 0.5962565357659362,
+      "ntc_approval_rate_portfolio": 0.5817781605895301,
+      "bad_rate": 0.1515928914594897,
+      "loss_per_100cr": 9.703961531727566,
+      "ntc_inclusion_rate": 0.46473346731744664,
+      "ntc_good_included": 0.5531686358754028,
+      "ntc_approved_n": 4856
+    },
+    {
+      "gamma": 0.45,
+      "auc_all": 0.7784185821902254,
+      "auc_ntc": 0.7611046496853359,
+      "auc_ntc_lo": 0.751119492056635,
+      "auc_ntc_hi": 0.7710898073140368,
+      "auc_etc": 0.7813458094986957,
+      "auc_alt_only_model": 0.7699570833250292,
+      "auc_single_aa_feature": 0.702882680523117,
+      "delong_p_ntc_vs_M0": 2.699395005331924e-99,
+      "approval_rate": 0.6779675158527089,
+      "ntc_approval_rate_portfolio": 0.6710690018183558,
+      "bad_rate": 0.15159781761496494,
+      "loss_per_100cr": 9.722574229293933,
+      "ntc_inclusion_rate": 0.5866590104316203,
+      "ntc_good_included": 0.6983082706766918,
+      "ntc_approved_n": 6130
+    },
+    {
+      "gamma": 0.6,
+      "auc_all": 0.8104331091269104,
+      "auc_ntc": 0.7956995000950273,
+      "auc_ntc_lo": 0.7863463461845418,
+      "auc_ntc_hi": 0.8050526540055128,
+      "auc_etc": 0.8128387848091846,
+      "auc_alt_only_model": 0.8053716855399911,
+      "auc_single_aa_feature": 0.7375117232878111,
+      "delong_p_ntc_vs_M0": 7.281740197898787e-146,
+      "approval_rate": 0.7377489153409723,
+      "ntc_approval_rate_portfolio": 0.7219829648770217,
+      "bad_rate": 0.1516031138672648,
+      "loss_per_100cr": 9.787312107537481,
+      "ntc_inclusion_rate": 0.6723131400133984,
+      "ntc_good_included": 0.8002148227712137,
+      "ntc_approved_n": 7025
+    }
+  ],
+  "assumptions": {
+    "NTC_SHARE": 0.15,
+    "beta": 0.5,
+    "LGD": 0.65,
+    "ref_rate": 0.14,
+    "cibil_map": "300+(FICO-300)*600/550",
+    "target_bad_rate": 0.15160391512466956
+  }
+}
