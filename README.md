@@ -1,7 +1,7 @@
 # Beyond Two Phases — reproducible code
 
 Companion code for *"Beyond Two Phases: Calibrated, Leakage-Audited and Economically Evaluated P2P Credit Risk Models,
-with an Extension to India's CIBIL Ecosystem"* (Archit Tiwari, November 2026). Base paper: Turiel J.D. & Aste T. (2020),
+with an Extension to India's CIBIL Ecosystem"* (Naitik Rishu, November 2026). Base paper: Turiel J.D. & Aste T. (2020),
 *R. Soc. Open Sci.* 7:191649, doi:10.1098/rsos.191649.
 
 ## Data
